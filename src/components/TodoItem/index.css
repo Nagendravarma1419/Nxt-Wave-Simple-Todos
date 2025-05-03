@@ -1,1 +1,28 @@
 /* Write your CSS here */
+/* Write your CSS here */
+.totdoItem {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  width: 800px;
+  background-color: #8a4872;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+}
+.btnstyle {
+  border-color: red;
+  border-radius: 10px;
+  color: red;
+  margin: 10px;
+  height: 40px;
+  width: 120px;
+  border-style: solid;
+}
+.para {
+  font-size: 20px;
+}
+.todoContent{
+  display: flex;
+}

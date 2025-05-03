@@ -1,21 +1,55 @@
-// Write your code here
+import {useState} from 'react'
 import './index.css'
 
-const TodoItem = props => {
-  const {todoDetails, deleteTodo} = props
-  const {id, title} = todoDetails
+const TodoItem = ({tododetails, ondelete, saveTodo, toggleCompleted}) => {
+  const {id, title, completed} = tododetails
+  const [isEditing, setEditingStatus] = useState(false)
+  const [inputValue, setInputValue] = useState(title)
 
-  const onDeleteTodo = () => {
-    deleteTodo(id)
+  const handleInputChange = event => {
+    setInputValue(event.target.value)
+  }
+
+  const saveEdit = () => {
+    if (inputValue.trim() !== '') {
+      const updatedTodo = {id, title: inputValue, completed}
+      saveTodo(updatedTodo)
+    }
+    setEditingStatus(false)
+  }
+
+  const toggleEdit = () => {
+    if (isEditing) {
+      saveEdit()
+    } else {
+      setEditingStatus(true)
+    }
   }
 
   return (
-    <li>
-      <p>{title}</p>
-      <button type="button" onClick={onDeleteTodo}>
-        Delete
-      </button>
+    <li className="totdoItem">
+      <div className="todoContent">
+        <input
+          type="checkbox"
+          checked={completed}
+          onChange={() => toggleCompleted(id)}
+        />
+        {isEditing ? (
+          <input type="text" onChange={handleInputChange} value={inputValue} />
+        ) : (
+          <p className="para">{title}</p>
+        )}
+      </div>
+      <div className="btnContainer">
+        <button className="btnstyle" type="button" onClick={toggleEdit}>
+          {isEditing ? 'Save' : 'Edit'}
+        </button>
+        <button className="btnstyle" type="button" onClick={() => ondelete(id)}>
+          Delete
+        </button>
+      </div>
     </li>
   )
 }
+
 export default TodoItem

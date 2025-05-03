@@ -1,1 +1,40 @@
 /* Write your CSS here */
+/* Write your CSS here */
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 900px;
+  background-color: #e7cadd;
+  border-radius: 10px;
+}
+.main1container {
+  background-color: #8a4872;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+.heading {
+  font-size: 35px;
+  color: #8a4872;
+  font-family: 'Roboto';
+}
+.textBox {
+  height: 40px;
+  width: 300px;
+  border-radius: 15px;
+  border-color: #8a4872;
+}
+.btnAdd {
+  border-width: 0px;
+  border-radius: 10px;
+  color: white;
+  margin: 10px;
+  height: 40px;
+  width: 120px;
+  background-color: #8a4872;
+}
